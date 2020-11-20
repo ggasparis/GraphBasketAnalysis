@@ -1,6 +1,0 @@
-players<-read.csv(file.choose(), header = T)
-attach(players)
-library(car)
-svg("players_ft.svg", width = 5, height = 5)
-scatterplot(FTM~FTA)
-dev.off()
