@@ -1,0 +1,59 @@
+---
+title: "NBA Data Analysis"
+output:
+  html_document:
+    df_print: paged
+---
+#### Load data
+```{r}
+ranking = read.csv("/Users/georgegasparis/GitHub/GraphBasketAnalysis/Data/ranking.csv")
+teams = read.csv("/Users/georgegasparis/GitHub/GraphBasketAnalysis/Data/teams.csv")
+player = read.csv("/Users/georgegasparis/GitHub/GraphBasketAnalysis/Data/players.csv")
+games = read.csv("/Users/georgegasparis/GitHub/GraphBasketAnalysis/Data/games.csv")
+games_details = read.csv("/Users/georgegasparis/GitHub/GraphBasketAnalysis/Data/games_details.csv")
+```
+#### Show data
+```{r}
+head(games_details,10)
+```
+Load main library
+```{r}
+library(tidyverse)
+```
+#### Group by player's name
+```{r}
+games_details %>% group_by(GAME_ID)
+```
+#### Points vs minutes played
+
+```{r}
+ggplot(data = games_details, mapping = aes( x = MIN, y = PTS, color = START_POSITION, shape = START_POSITION)) +
+  geom_point()
+
+```
+#### Specify a condition
+```{r}
+ggplot(data = games_details, mapping = aes(x = MIN, y = PTS, color = TEAM_ABBREVIATION == "MIL")) +
+  geom_point()
+```
+
+```{r}
+games_details %>%
+  filter(TEAM_ABBREVIATION=="MIL") %>%
+  ggplot() + geom_point( mapping = aes(x = MIN, y = PTS, color = START_POSITION))
+```
+
+
+```{r}
+select(games_details, MIN, FGM, FGA)
+```
+
+
+
+
+
+
+
+
+
+
