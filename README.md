@@ -10,18 +10,21 @@ Description of the [datasets](https://github.com/ggasparis/GraphBasketAnalysis/t
 *  ranking.csv: the rankings of the teams till specific date
 
 ### Data Analysis
-
 The analysis that aims to describe the data in more detail. 
-* R 
+* R
 * RStudio
 
 ### Data Visualization
-
 For better understanding the data, it need to be visualized. 
 * Tableau 
 * RStudio 
 
 ### Graph Analysis
+Finally the data has been imported in [neo4j](https://neo4j.com) local enviroment. With the graph database, it's possible to create multiple nodes and relatioships through the data, so it can be queried in detail.
+
+
+
+
 
 
 
