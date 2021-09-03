@@ -118,7 +118,7 @@ CREATE (game)-[:HOME_WINS]->(win)
 SET win.HomeWins = CASE line.HOME_TEAM_WINS WHEN '1' THEN true ELSE false END
 
 CREATE (game)-[:HOME_TEAM_IS]->(home_team)
-CREATE (game)-[:AWAY_TEAM_IS]->(away_team)
+CREATE (game)-[:VISITOR_TEAM_IS]->(visitor_team)
 CREATE (game)-[:TEAM_HOME]->(team_home)
 CREATE (game)-[:TEAM_AWAY]->(team_away)
 
@@ -179,7 +179,7 @@ MERGE (player)-[:START_POS]->(p:START_POSITION {start_pos: coalesce(toString(lin
 MERGE (player)-[:COMMENT]->(c:COMMENT {did_play: coalesce(toString(line.COMMENT), '-') })<-[:IN_GAME]-(game)
 MERGE (player)-[:MIN_PLAY]->(c:MIN {min_play: coalesce(toString(line.MIN), '-') })<-[:IN_GAME_MIN]-(game)
 MERGE (player)-[:FG_MADE]->(fgm:FGM {fg_made: coalesce(ToInteger(line.FGM), 0) })<-[:IN_GAME_FGM]-(game)
-MERGE (player)-[:FG_ATTEMPTED]->(fga:FGA {fg_attempted: coalesce(toString(line.FGA), 0) })<-[:IN_GAME_FGA]-(game)
+MERGE (player)-[:FG_ATTEMPTED]->(fga:FGA {fg_attempted: coalesce(ToInteger(line.FGA), 0) })<-[:IN_GAME_FGA]-(game)
 MERGE (player)-[:FG_PCT]->(fgP:FG_PCT {fg_pct: coalesce(toFloat(line.FG_PCT), 0.0) })<-[:IN_GAME_FG_PCT]-(game)
 MERGE (player)-[:THREE_MADE]->(fg3M:FG3M {fg3_made: coalesce(ToInteger(line.FG3M), 0) })<-[:IN_GAME_FG3M]-(game)
 MERGE (player)-[:THREE_ATTEMPTED]->(fg3A:FG3A {fg3_attempted: coalesce(ToInteger(line.FG3A), 0) })<-[:IN_GAME_FG3A]-(game)
