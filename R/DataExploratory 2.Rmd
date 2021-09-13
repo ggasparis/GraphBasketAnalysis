@@ -1,14 +1,21 @@
 ---
 title: "Data Exploratory"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
 ---
 #### Data exploration on NBA dataset
+```{r}
+library(tidyverse)
+library(DataExplorer)
+```
 
 #### Load data
 ```{r}
 ranking = read.csv("/Users/georgegasparis/GitHub/GraphBasketAnalysis/Data/ranking.csv")
 teams = read.csv("/Users/georgegasparis/GitHub/GraphBasketAnalysis/Data/teams.csv")
-player = read.csv("/Users/georgegasparis/GitHub/GraphBasketAnalysis/Data/players.csv")
+players = read.csv("/Users/georgegasparis/GitHub/GraphBasketAnalysis/Data/players.csv")
 games = read.csv("/Users/georgegasparis/GitHub/GraphBasketAnalysis/Data/games.csv")
 games_details = read.csv("/Users/georgegasparis/GitHub/GraphBasketAnalysis/Data/games_details.csv")
 ```
@@ -76,6 +83,7 @@ Check for missing values using function ```plot_missing```. We see that there is
 ```{r}
 plot_missing(games)
 ```
+
 ### ranking
 ```{r}
 head(ranking,10)
@@ -102,17 +110,19 @@ Check for missing values using function ```plot_missing```. We see that there is
 ```{r}
 plot_missing(ranking)
 ```
+
 #### players
 ```{r}
-head(player,10)
+head(players,10)
 ```
-#### Dimansions
+
+#### Dimensions
 ```{r}
-dim(player)
-glimpse(player)
+dim(players)
+glimpse(players)
 ```
 ```{r}
-skim(player)
+skim(players)
 ```
 
 Metrics on data overall using funtion ```plot_intro```. 
@@ -124,6 +134,7 @@ Check for missing values using function ```plot_missing```. We see that there is
 ```{r}
 plot_missing(games)
 ```
+
 #### teams
 
 ```{r}
@@ -149,7 +160,7 @@ plot_intro(teams)
 #### Missing values
 Check for missing values using function ```plot_missing```. We see that there isn’t a variable with such missing values that needs to be removed. In that case we should use the ```drop_columns``` function.
 ```{r}
-plot_missing(games)
+plot_missing(teams_stats)
 ```
 
 

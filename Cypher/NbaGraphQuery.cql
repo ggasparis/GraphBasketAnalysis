@@ -57,6 +57,12 @@ MATCH (p:PLAYER_ID)-[:HAS_NAME]-(m:PLAYER_NAME {name:'THANASIS ANTETOKOUNMPO'})
 RETURN m AS player,
       COUNT(c) AS count
 ;
+// Why he didnt start
+MATCH (p:PLAYER_ID)-[:HAS_NAME]-(m:PLAYER_NAME {name:'MALIK MONK'})
+MATCH (p:PLAYER_ID)-[:COMMENT]->(c:COMMENT)<-[:IN_GAME]-(g:GAME_ID)-[:ON_DATE]->(d:GAME_DATE_EST)
+WHERE c.did_play <>  '-'
+RETURN m AS player, d AS day, c AS comment
+;
 //Q9 Poioi exoun faei polu pago
 MATCH (p:PLAYER_ID)-[:COMMENT]->(c:COMMENT)<-[:IN_GAME]-(g:GAME_ID)
 WHERE c.did_play <>  '-'
@@ -121,7 +127,7 @@ RETURN m AS player,
 ORDER BY count DESC
 LIMIT 10
 ;
-// Who did not play 
+// Who did not play
 MATCH (p:PLAYER_ID)-[:COMMENT]->(c:COMMENT)<-[:IN_GAME]-(g:GAME_ID)
 WHERE c.did_play <> '-'
 MATCH (p)-[:HAS_NAME]->(m:PLAYER_NAME)
