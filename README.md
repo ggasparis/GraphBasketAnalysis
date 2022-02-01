@@ -2,7 +2,7 @@
 
 This project is about reasoning in NBA [games data](https://www.kaggle.com/nathanlauga/nba-games). 
 
-### Oblective
+### Objective
 Goal of this project: 
 * Create powerful graph and descriptive metadata 
 * Ηighlight "hidden" data
