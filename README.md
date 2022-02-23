@@ -21,7 +21,7 @@ The analysis that aims to describe the data in more detail.
 * RStudio
 
 ### Data Visualization
-For better understanding the data, it need to be visualized. 
+For better understanding the data, it needs to be visualized. 
 * Tableau 
 * RStudio 
 
